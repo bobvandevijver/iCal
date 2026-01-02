@@ -9,16 +9,6 @@ if (!hasChangelog && !isTrivial) {
     warn("Please add a changelog entry for your changes.");
 }
 
-// Keep Lock file up to date
-const packageChanged = danger.git.modified_files.includes("composer.json");
-const lockfileChanged = danger.git.modified_files.includes("composer.lock");
-if (packageChanged && !lockfileChanged) {
-    const message =
-        "Changes were made to composer.json, but not to composer.lock";
-    const idea = "Perhaps you need to run `composer update`?";
-    warn(`${message} - <i>${idea}</i>`);
-}
-
 // Warn if there are library changes, but not tests
 const hasSrcChanges =
     danger.git.modified_files.filter((filepath) => filepath.includes("src"))
