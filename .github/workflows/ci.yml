@@ -34,8 +34,7 @@ jobs:
           key: "php-${{ matrix.php-version }}-composer-cache"
 
       - name: "Install packages for PHP ${{ matrix.php-version }}"
-        if: ${{ matrix.php-version != '8.3' }}
-        run: "composer install --ignore-platform-reqs"
+        run: "composer update"
 
       - name: "Run tests"
         if: ${{ matrix.php-version == '8.3' }}
