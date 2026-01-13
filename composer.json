@@ -37,7 +37,7 @@
         "vimeo/psalm": "^5.0 || ^6.0"
     },
     "replace": {
-        "eluceo/ical": "2.15.*"
+        "eluceo/ical": "2.15.* || 2.16.*"
     },
     "conflict": {
         "php": "7.4.6"
